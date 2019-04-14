@@ -87,6 +87,8 @@
             </div>
         </div>
     </div>
+    <!-- 评论部分 comments=false,则不要评论部分-->
+<% if(page.comments) {%>
 
     <% if (theme.gitalk && theme.gitalk.enable) { %>
         <%- partial('_partial/gitalk') %>
@@ -108,6 +110,7 @@
         <%- partial('_partial/valine') %>
     <% } %>
 
+<% } %>
     <%- partial('_partial/prev-next') %>
 </div>
 
