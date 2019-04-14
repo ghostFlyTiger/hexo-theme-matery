@@ -4,18 +4,19 @@
 <div class="card gitalk-card" data-aos="fade-up">
     <div id="gitalk-container" class="card-content"></div>
 </div>
-
+<script src="<%- theme.libs.js.md5 %>"></script>
 <script src="<%- theme.libs.js.gitalk %>"></script>
 <script>
-    let gitalk = new Gitalk({
+    let theGitalk = new Gitalk({
         clientID: '<%- theme.gitalk.oauth.clientId %>',
         clientSecret: '<%- theme.gitalk.oauth.clientSecret %>',
         repo: '<%- theme.gitalk.repo %>',
         owner: '<%- theme.gitalk.owner %>',
-        admin: <%- JSON.stringify(theme.gitalk.admin) %>,
-        id: '<%- date(page.date, 'YYYY-MM-DDTHH-mm-ss') %>',
+        admin: ['<%- theme.gitalk.admin %>'],
+        //用md5处理路径,以防止路径过长而不能正常初始化issue
+        id: md5( window.location.pathname),
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
-    gitalk.render('gitalk-container');
+    theGitalk.render('gitalk-container');
 </script>
