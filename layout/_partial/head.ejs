@@ -1,13 +1,15 @@
 <%
     var title = page.title;
 
-    // tags, categories, about pages title
+    // tags, categories, about, friends pages title
     if (title == 'tags') {
         title = __('tags');
     } else if (title == 'categories') {
         title = __('categories');
     } else if (title == 'about') {
         title = __('about');
+    } else if (title == 'friends') {
+        title = __('friends');
     }
 
     // archives, category, tag pages title
